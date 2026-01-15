@@ -1,0 +1,166 @@
+#include <iostream>
+#include <string>
+using namespace std;
+  
+const int MAX = 100;
+
+int roll[MAX];
+string name[MAX];
+float marks[MAX];
+int countStudents = 0;
+
+
+void addStudents();
+void displayStudents();
+void searchStudents();
+void updateStudents();
+void deleteStudents();
+
+int main()
+{
+    int choice;
+
+    do
+    {
+        cout << "\n---- Student Record Management System ----\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display Students\n";
+        cout << "3. Search Student\n";
+        cout << "4. Update Marks\n";
+        cout << "5. Delete Student\n";
+        cout << "6. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1: addStudents(); break;
+            case 2: displayStudents(); break;
+            case 3: searchStudents(); break;
+            case 4: updateStudents(); break;
+            case 5: deleteStudents(); break;
+            case 6: cout << "Exiting program.\n"; break;
+            default: cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
+
+void addStudents()
+{
+    if (countStudents >= MAX)
+    {
+        cout << "Record limit reached.\n";
+        return;
+    }
+
+    cout << "Enter Roll Number: ";
+    cin >> roll[countStudents];
+
+    for (int i = 0; i < countStudents; i++)
+    {
+        if (roll[i] == roll[countStudents])
+        {
+            cout << "Roll number already exists.\n";
+            return;
+        }
+    }
+
+    cout << "Enter Name: ";
+    cin >> name[countStudents];
+
+    cout << "Enter Marks: ";
+    cin >> marks[countStudents];
+
+    if (marks[countStudents] < 0 || marks[countStudents] > 100)
+    {
+        cout << "Invalid marks.\n";
+        return;
+    }
+
+    countStudents++;
+    cout << "Student added successfully.\n";
+}
+
+void displayStudents()
+{
+    if (countStudents == 0)
+    {
+        cout << "No records found.\n";
+        return;
+    }
+
+    for (int i = 0; i < countStudents; i++)
+    {
+        cout << "Roll: " << roll[i]
+             << " | Name: " << name[i]
+             << " | Marks: " << marks[i] << endl;
+    }
+}
+
+void searchStudents()
+{
+    int r;
+    cout << "Enter Roll Number to search: ";
+    cin >> r;
+
+    for (int i = 0; i < countStudents; i++)
+    {
+        if (roll[i] == r)
+        {
+            cout << "Record Found:\n";
+            cout << "Name: " << name[i]
+                 << ", Marks: " << marks[i] << endl;
+            return;
+        }
+    }
+
+    cout << "Student not found.\n";
+}
+
+void updateStudents()
+{
+    int r;
+    cout << "Enter Roll Number: ";
+    cin >> r;
+
+    for (int i = 0; i < countStudents; i++)
+    {
+        if (roll[i] == r)
+        {
+            cout << "Enter new Marks: ";
+            cin >> marks[i];
+            cout << "Marks updated successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Student not found.\n";
+}
+
+void deleteStudents()
+{
+    int r;
+    cout << "Enter Roll Number to delete: ";
+    cin >> r;
+
+    for (int i = 0; i < countStudents; i++)
+    {
+        if (roll[i] == r)
+        {
+            for (int j = i; j < countStudents - 1; j++)
+            {
+                roll[j] = roll[j + 1];
+                name[j] = name[j + 1];
+                marks[j] = marks[j + 1];
+            }
+            countStudents--;
+            cout << "Record deleted successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Student not found.\n";
+}
