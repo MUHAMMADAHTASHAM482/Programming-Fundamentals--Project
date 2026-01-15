@@ -6,7 +6,6 @@ It demonstrates core programming concepts such as arrays, functions, loops, cond
 
 The system allows users to **add, view, search, update, and delete student records** using a simple menu-driven interface.
 
----
 
 ## Concepts Used
 This project focuses strictly on **programming fundamentals**, without using Object-Oriented Programming.
@@ -19,7 +18,6 @@ This project focuses strictly on **programming fundamentals**, without using Obj
 - Basic data validation  
 - Menu-driven program structure  
 
----
 
 ## Features
 - Add student records (roll number, name, marks)  
@@ -30,14 +28,12 @@ This project focuses strictly on **programming fundamentals**, without using Obj
 - Delete a student record  
 - Input validation for marks range (0–100)  
 
----
 
 ## Technologies
 - **Language:** C++  
 - **Compiler:** Any standard C++ compiler (GCC, MSVC, Clang)  
 - **Paradigm:** Procedural Programming  
 
----
 
 ## How to Run
 1. Clone the repository:
@@ -45,7 +41,7 @@ This project focuses strictly on **programming fundamentals**, without using Obj
    git clone https://github.com/your-username/student-record-management-system.git
 
 
-Author
-Ahtasham
-Computer Science Student
-First Semester Programming Fundamentals Project
+## Author
+-Ahtasham
+-Computer Science Student
+-First Semester Programming Fundamentals Project
